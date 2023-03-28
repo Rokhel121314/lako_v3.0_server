@@ -4,6 +4,7 @@ const cors = require("cors");
 const connectDB = require("./config/connectDB");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 // imports for user
 const User = require("./models/userModel");
@@ -44,6 +45,14 @@ const startServer = async () => {
 };
 
 startServer();
+
+app.use(express.static(__dirname + "/public"));
+
+// handle every other route with index.html, which will contain
+// a script tag to your application's JavaScript file(s).
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "public", "index.html"));
+});
 
 app.get("/", (req, res) => {
   res.send("test12345");
