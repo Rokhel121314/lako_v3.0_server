@@ -20,6 +20,10 @@ router.post("/users/login", userLogin);
 router.get("/users/logout", userLogout);
 
 // CHECK USER IF AUTHENTICATED
-router.get("/users/profile", validateToken, isAuthenticated);
+router.get(
+  "/users/profile",
+  // validateToken,
+  isAuthenticated
+);
 
 module.exports = router;
