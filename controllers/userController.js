@@ -52,7 +52,6 @@ const userLogin = async (req, res) => {
         res.cookie("access-token", accessToken, {
           expiresIn: 60 * 60 * 24 * 1000,
           httpOnly: true,
-          sameSite: "strict",
         });
 
         res.status(200).json({
