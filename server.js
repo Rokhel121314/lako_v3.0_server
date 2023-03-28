@@ -4,7 +4,7 @@ const cors = require("cors");
 const connectDB = require("./config/connectDB");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const path = require("path");
+const history = require("connect-history-api-fallback");
 
 // imports for user
 const User = require("./models/userModel");
@@ -27,6 +27,11 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
 app.use(cors({ credentials: true, origin: true }));
+app.use(
+  history({
+    verbose: true,
+  })
+);
 app.use(stockRoutes);
 app.use(userRoutes);
 app.use(transactionRoutes);
@@ -45,14 +50,6 @@ const startServer = async () => {
 };
 
 startServer();
-
-app.use(express.static(__dirname + "/public"));
-
-// handle every other route with index.html, which will contain
-// a script tag to your application's JavaScript file(s).
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "public", "index.html"));
-});
 
 app.get("/", (req, res) => {
   res.send("test12345");
