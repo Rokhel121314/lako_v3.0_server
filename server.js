@@ -27,14 +27,20 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cookieParser());
 app.use(cors({ credentials: true, origin: true }));
+
+app.use(stockRoutes);
+app.use(userRoutes);
+app.use(transactionRoutes);
+
+app.use(express.static("build"));
 app.use(
   history({
     verbose: true,
   })
 );
-app.use(stockRoutes);
-app.use(userRoutes);
-app.use(transactionRoutes);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 const PORT = process.env.PORT || 3001;
 
