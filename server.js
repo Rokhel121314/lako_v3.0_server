@@ -5,6 +5,7 @@ const connectDB = require("./config/connectDB");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const history = require("connect-history-api-fallback");
+const path = require("path");
 
 // imports for user
 const User = require("./models/userModel");
