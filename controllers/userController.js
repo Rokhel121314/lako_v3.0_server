@@ -50,6 +50,12 @@ const userLogin = async (req, res) => {
       } else {
         const accessToken = createToken(user._id);
         res.cookie("access-token", accessToken, {
+          // expiresIn: 60 * 60 * 24 * 1000,
+          // httpOnly: true,
+          // sameSite: "strict",
+          sameSite: "none",
+          secure: true,
+          domain: "lako-v3-0.onrender.com",
           expiresIn: 60 * 60 * 24 * 1000,
           httpOnly: true,
         });
