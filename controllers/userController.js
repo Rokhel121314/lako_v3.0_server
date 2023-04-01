@@ -52,7 +52,8 @@ const userLogin = async (req, res) => {
         res.cookie("access-token", accessToken, {
           expiresIn: 60 * 60 * 24 * 1000,
           httpOnly: true,
-          sameSite: "strict",
+          secure: true,
+          sameSite: "none",
           domain: ".lakoph.online",
           path: "/",
 
