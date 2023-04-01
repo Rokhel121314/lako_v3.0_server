@@ -53,7 +53,7 @@ const userLogin = async (req, res) => {
           expiresIn: 60 * 60 * 24 * 1000,
           httpOnly: true,
           sameSite: "strict",
-          domain: "lakov3.onrender.com",
+          domain: ".lakoph.online",
           path: "/",
 
           // sameSite: "none",
