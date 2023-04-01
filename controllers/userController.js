@@ -53,6 +53,9 @@ const userLogin = async (req, res) => {
           expiresIn: 60 * 60 * 24 * 1000,
           httpOnly: true,
           sameSite: "strict",
+          domain: ".onrender.com",
+          path: "/",
+
           // sameSite: "none",
           // secure: true,
           // domain: "lako-v3-0.onrender.com",
