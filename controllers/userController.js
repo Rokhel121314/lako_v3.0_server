@@ -54,7 +54,7 @@ const userLogin = async (req, res) => {
           httpOnly: true,
           secure: true,
           sameSite: "none",
-          domain: ".lakoph.online",
+          domain: "https://lakoph.online/",
           path: "/",
 
           // sameSite: "none",
