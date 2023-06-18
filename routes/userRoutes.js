@@ -22,7 +22,7 @@ router.get("/users/logout", userLogout);
 // CHECK USER IF AUTHENTICATED
 router.get(
   "/users/profile",
-  // validateToken,
+  validateToken,
   isAuthenticated
 );
 
