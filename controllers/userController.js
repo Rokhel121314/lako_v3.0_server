@@ -54,8 +54,8 @@ const userLogin = async (req, res) => {
           httpOnly: true,
           secure: true,
           sameSite: "none",
-          domain: "https://www.lakov3.online/",
-          path: "/",
+          // domain: "https://www.lakov3.online/",
+          // path: "/",
 
           // sameSite: "none",
           // secure: true,
@@ -69,6 +69,7 @@ const userLogin = async (req, res) => {
           first_name: user.first_name,
           store_name: user.store_name,
           store_logo: user.store_logo,
+          user_name: user.user_name,
         });
       }
     }
